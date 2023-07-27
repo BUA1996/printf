@@ -3,6 +3,12 @@
 #include <string.h>
 #include <unistd.h>
 
+/**
+ * print_binary - function to handle binary convertion
+ * @num: input variable
+ * Return: nothing
+ */
+
 void print_binary(unsigned int num)
 {
 	char binary[32];
