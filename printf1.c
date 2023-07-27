@@ -17,16 +17,21 @@ int print_integer(int num)
 	int is_negative = 0;
 	int i, j;
 	char temp;
+	unsigned int num2;
 
 	if (num < 0)
 	{
 		is_negative = 1;
-		num = -num;
+		num2 = -num;
+	}
+	else
+	{
+		num2 = num;
 	}
 	do {
-		buffer[num_chars++] = num % 10 + '0';
-		num /= 10;
-	} while (num > 0);
+		buffer[num_chars++] = num2 % 10 + '0';
+		num2 /= 10;
+	} while (num2 > 0);
 
 	if (is_negative)
 	{

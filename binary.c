@@ -14,6 +14,11 @@ int print_binary(unsigned int num)
 	char binary[32];
 	int i = 0, j;
 
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 	for (j = 31; j >= 0; j--)
 	{
 		binary[i++] = (num & (1 << j)) ? '1' : '0';
