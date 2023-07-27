@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include "main.h"
+#include <string.h>
 
 /**
  * print_integer - function to handle the %d and %i for integers

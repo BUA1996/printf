@@ -63,6 +63,11 @@ int _printf(const char *format, ...)
 				int num = va_arg(args, int);
 				print_integer(num);
 			}
+			else if (*format == 'b')
+			{
+				unsigned int num = va_arg(args, unsigned int);
+				print_binary(num);
+			}
 		}
 
 		format++;
