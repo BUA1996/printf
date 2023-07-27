@@ -3,6 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 
+int _printf(const char *format, ...);
+
 /**
  * _printf - is a custom printf function in C
  * @format: format variable string for the function
@@ -30,10 +32,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			if (*format == '\0')
-			{
-				break;
-			}
 			if (*format == '%')
 			{
 				write(1, format, 1);
@@ -51,7 +49,7 @@ int _printf(const char *format, ...)
 				write(1, str, strlen);
 				print += strlen;
 			}
-			if (*format == 'c')
+			else if (*format == 'c')
 			{
 				char notst = (char)va_arg(args, int);
 
@@ -61,12 +59,19 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 			{
 				int num = va_arg(args, int);
+
 				print_integer(num);
 			}
 			else if (*format == 'b')
 			{
 				unsigned int num = va_arg(args, unsigned int);
+
 				print_binary(num);
+			}
+			else
+			{
+				format--;
+				write(1, format, 1);
 			}
 		}
 
