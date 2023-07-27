@@ -12,7 +12,6 @@
 int _printf(const char *format, ...)
 {
 	int print = 0;
-
 	va_list args;
 
 	if (format == NULL)
@@ -58,6 +57,11 @@ int _printf(const char *format, ...)
 
 				write(1, &notst, 1);
 				print++;
+			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(args, int);
+				print_integer(num);
 			}
 		}
 
