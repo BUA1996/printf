@@ -2,19 +2,21 @@
 #include <stdarg.h>
 #include "main.h"
 #include <string.h>
+#include <stdio.h>
 
 /**
  * print_integer - function to handle the %d and %i for integers
  * @num: variable to hold input
- * return: an integer
+ * return: number of characters
  */
 
-void print_integer(int num)
+int print_integer(int num)
 {
 	char buffer[1024];
 	int num_chars = 0;
 	int is_negative = 0;
 	int i, j;
+	char temp;
 
 	if (num < 0)
 	{
@@ -32,11 +34,13 @@ void print_integer(int num)
 	}
 	for (i = 0, j = num_chars - 1; i < j; i++, j--)
 	{
-		char temp = buffer[i];
-
+		temp = buffer[i];
+		
 		buffer[i] = buffer[j];
 		buffer[j] = temp;
 	}
+	buffer[num_chars] = '\0';
 
 	write(1, buffer, num_chars);
+	return (num_chars);
 }
