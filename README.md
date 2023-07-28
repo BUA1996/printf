@@ -8,3 +8,4 @@ c
 s
 %
 and other specifiers including flags, width and precision.
+.
